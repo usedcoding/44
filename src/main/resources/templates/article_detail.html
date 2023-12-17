@@ -1,0 +1,13 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+
+    <div th:text="${article.title}"></div>
+    <div th:text="${article.content}"></div>
+    <div th:text="${article.createDate}"></div>
+
+
+    <a th:href="@{|/article/delete/${article.id}|}"> 삭제 </a>
+    <a th:href="@{|/article/modify/${article.id}|}"> 수정 </a>
+</div>
+</html>
+

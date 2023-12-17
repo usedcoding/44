@@ -1,0 +1,33 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+    <form th:action="@{/article/list}">
+        <div class="col-6">
+            <div class="input-group">
+                <input type="text" name="keyword">
+                <button class="btn btn-outline-secondary" type="submit">찾기</button>
+            </div>
+        </div>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>제목</th>
+            <th>작성 일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article : ${articleList}">
+            <td>
+                <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
+            </td>
+            <td th:text="${article.createDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/article/create}"> 게시글 작성 </a>
+</div>
+</html>
+<!--<a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>-->
+<!--<br>-->
+<!--<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>-->
